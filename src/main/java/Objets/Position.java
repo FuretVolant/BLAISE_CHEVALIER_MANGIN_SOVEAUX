@@ -1,3 +1,5 @@
+package main.java.Objets;
+
 public class Position {
     private double longitude;
     private double latitude;
