@@ -1,6 +1,7 @@
-package main.java.Objets;
+package fr.ul.miage.metronav.domain.model;
 
 import java.util.List;
+
 
 public class Station {
 
@@ -10,9 +11,9 @@ public class Station {
 
     private List<Ligne> lignes;
 
-    private Incident incident;
+    private String incident;
 
-    public Station(String nom, int temps_arret, List<Ligne> lignes, Incident incident) {
+    public Station(String nom, int temps_arret, List<Ligne> lignes, String incident) {
         this.nom = nom;
         this.temps_arret = temps_arret;
         this.lignes = lignes;

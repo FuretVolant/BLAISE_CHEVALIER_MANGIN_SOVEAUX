@@ -1,4 +1,4 @@
-package main.java.Objets;
+package fr.ul.miage.metronav.domain.model;
 
 public class Position {
     private double longitude;
