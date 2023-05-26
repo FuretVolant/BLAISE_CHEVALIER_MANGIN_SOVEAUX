@@ -25,7 +25,4 @@ public class Itineraire {
         return res;
     }
 
-    public void afficherHeureArrivee(){
-        System.out.println(LocalTime.now().plusMinutes(getTempsTotal()));
-    }
 }

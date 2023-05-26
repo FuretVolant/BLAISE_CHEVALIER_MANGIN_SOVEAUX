@@ -6,7 +6,11 @@ public class Ligne {
 
     private String numero;
 
-    public Ligne(String numero, List<Station> stations) {
+    public Ligne(String numero) {
         this.numero = numero;
+    }
+
+    public String getNumero() {
+        return numero;
     }
 }
