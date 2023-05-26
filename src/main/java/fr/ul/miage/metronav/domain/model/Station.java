@@ -19,4 +19,20 @@ public class Station {
         this.lignes = lignes;
         this.incident = incident;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getTemps_arret() {
+        return temps_arret;
+    }
+
+    public List<Ligne> getLignes() {
+        return lignes;
+    }
+
+    public String getIncident() {
+        return incident;
+    }
 }
