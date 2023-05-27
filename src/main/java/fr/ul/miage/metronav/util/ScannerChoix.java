@@ -12,6 +12,27 @@ public class ScannerChoix {
         this.scanner = new Scanner(System.in);
     }
 
+    public ScannerChoix() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    public int getValidIntInput(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                String input = scanner.nextLine();
+                int value = Integer.parseInt(input);
+                if(value<1){
+                    System.out.println("Bien essayé ^^");
+                    throw new NumberFormatException();
+                }
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("Erreur : Veuillez entrer un nombre entier valide.");
+            }
+        }
+    }
+
     public Integer make() {
         int res = 0;
         System.out.println("Votre Choix :");
