@@ -9,9 +9,9 @@ public class TrajetTest {
     @Test
     public void testGetStationDepart() {
         // Création d'une station de départ
-        Station stationDepart = new Station("Gare Centrale", 5, Arrays.asList(new Ligne("L1")), null);
+        Station stationDepart = new Station("Gare Centrale",new Position(1.0, 2.0), 5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
-        Station stationArrivee = new Station("Gare du Nord", 10, Arrays.asList(new Ligne("L1")), null);
+        Station stationArrivee = new Station("Gare du Nord",new Position(1.0, 2.0), 10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
         Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);
@@ -23,9 +23,9 @@ public class TrajetTest {
     @Test
     public void testGetStationArrivee() {
         // Création d'une station de départ
-        Station stationDepart = new Station("Gare Centrale", 5, Arrays.asList(new Ligne("L1")), null);
+        Station stationDepart = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
-        Station stationArrivee = new Station("Gare du Nord", 10, Arrays.asList(new Ligne("L1")), null);
+        Station stationArrivee = new Station("Gare du Nord", new Position(1.0, 2.0),10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
         Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);
@@ -37,9 +37,9 @@ public class TrajetTest {
     @Test
     public void testGetDuree() {
         // Création d'une station de départ
-        Station stationDepart = new Station("Gare Centrale", 5, Arrays.asList(new Ligne("L1")), null);
+        Station stationDepart = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
-        Station stationArrivee = new Station("Gare du Nord", 10, Arrays.asList(new Ligne("L1")), null);
+        Station stationArrivee = new Station("Gare du Nord", new Position(1.0, 2.0),10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
         Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);

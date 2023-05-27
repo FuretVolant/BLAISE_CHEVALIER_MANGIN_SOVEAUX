@@ -13,8 +13,11 @@ public class Station {
 
     private String incident;
 
-    public Station(String nom, int temps_arret, List<Ligne> lignes, String incident) {
+    private Position position;
+
+    public Station(String nom, Position position, int temps_arret, List<Ligne> lignes, String incident) {
         this.nom = nom;
+        this.position = position;
         this.temps_arret = temps_arret;
         this.lignes = lignes;
         this.incident = incident;
@@ -34,5 +37,9 @@ public class Station {
 
     public String getIncident() {
         return incident;
+    }
+
+    public Position getPosition(){
+        return this.position;
     }
 }
