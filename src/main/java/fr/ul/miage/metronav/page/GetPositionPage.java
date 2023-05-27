@@ -1,12 +1,14 @@
 package fr.ul.miage.metronav.page;
 
 import fr.ul.miage.metronav.domain.model.Position;
+import fr.ul.miage.metronav.domain.model.Station;
+import fr.ul.miage.metronav.domain.service.StationServiceImpl;
 import fr.ul.miage.metronav.util.ScannerDouble;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetPositionPage {
+public class GetPositionPage extends Page {
 
     public List<Position> getPositionListFromUser(){
 
@@ -27,5 +29,20 @@ public class GetPositionPage {
         double longitude = scd.getValidDoubleInput("Longitude : ");
 
         return new Position(longitude, latitude);
+    }
+
+    @Override
+    public void display() {
+        Position userPos = getPositionFromUser("Entrez votre position actuelle : ");
+
+        StationServiceImpl serviceStation = new StationServiceImpl();
+
+        Station closest = serviceStation.trouverPlusProcheStation(userPos, new ArrayList<>());
+
+        GetCriterePage gcp = new GetCriterePage();
+        gcp.setPreviousPage(this);
+        gcp.display();
+
+
     }
 }
