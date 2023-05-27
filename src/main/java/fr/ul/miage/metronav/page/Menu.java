@@ -1,5 +1,7 @@
 package fr.ul.miage.metronav.page;
 
+import fr.ul.miage.metronav.util.ScannerDouble;
+
 public class Menu extends Page {
 
     @Override
