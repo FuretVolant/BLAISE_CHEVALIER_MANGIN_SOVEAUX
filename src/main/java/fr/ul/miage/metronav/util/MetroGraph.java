@@ -75,7 +75,6 @@ public class MetroGraph {
         lignesF.add(new Ligne("Ligne 2"));
         Station stationI = new Station("Station I", new Position(3.0, 6.0), 4, lignesI, "Incident Notable");
 
-
         Trajet tragetAB = new Trajet(stationA,stationB, 40);
         Trajet tragetBC = new Trajet(stationB,stationC, 30);
         Trajet tragetBI = new Trajet(stationA,stationI, 1);
@@ -87,18 +86,40 @@ public class MetroGraph {
         Trajet tragetGH = new Trajet(stationG,stationH, 18);
         Trajet tragetHI = new Trajet(stationH,stationI, 1);
         Trajet tragetGC = new Trajet(stationG,stationC, 2);
-        Trajet tragetCD = new Trajet(stationC,stationD, 2);//incident
+        Trajet tragetCD = new Trajet(stationC,stationD, 2, "Trajet fermé pour travaux");//incident
 
 
+        this.stationList.add(stationA);
+        this.stationList.add(stationB);
+        this.stationList.add(stationC);
+        this.stationList.add(stationD);
+        this.stationList.add(stationE);
+        this.stationList.add(stationF);
+        this.stationList.add(stationG);
+        this.stationList.add(stationH);
+        this.stationList.add(stationI);
 
+        this.trajetList.add(tragetAB);
+        this.trajetList.add(tragetBC);
+        this.trajetList.add(tragetBI);
+        this.trajetList.add(tragetAD);
+        this.trajetList.add(tragetDE);
+        this.trajetList.add(tragetEF);
+        this.trajetList.add(tragetCF);
+        this.trajetList.add(tragetGF);
+        this.trajetList.add(tragetGH);
+        this.trajetList.add(tragetHI);
+        this.trajetList.add(tragetGC);
+        this.trajetList.add(tragetCD);
 
     }
 
 
-
-
-
     public List<Station> getStationList() {
         return stationList;
+    }
+
+    public List<Trajet> getTrajetList(){
+        return trajetList;
     }
 }
