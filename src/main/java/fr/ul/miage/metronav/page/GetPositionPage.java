@@ -43,6 +43,5 @@ public class GetPositionPage extends Page {
         gcp.setPreviousPage(this);
         gcp.display();
 
-
     }
 }

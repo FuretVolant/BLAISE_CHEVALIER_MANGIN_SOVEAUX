@@ -3,9 +3,7 @@ package fr.ul.miage.metronav.util;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
-public class ScannerDouble {
-
-    private Scanner scanner;
+public class ScannerDouble extends ScannerBase{
 
     public ScannerDouble() {
         scanner = new Scanner(System.in);
