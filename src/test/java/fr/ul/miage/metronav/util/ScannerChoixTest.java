@@ -16,6 +16,8 @@ public class ScannerChoixTest {
     private final PrintStream originalPrintStream = System.out;
     public HashMap<Integer, String> choix = new HashMap<>();
 
+    public String sep = System.getProperty("line.separator");
+
 
     @BeforeEach
     public void setUpStreams() {
@@ -60,14 +62,15 @@ public class ScannerChoixTest {
 
         String output = outputStream.toString();
 
-        String expectedOutput = """
-                Choisissez quel type d'itinéraire vous souhaitez
-                1. Normal
-                2. Simple
-                3. Composé
-                Bien essayé ^^
-                Erreur : Veuillez entrer un nombre parmi ceux donnés.
-                """;
+
+        String expectedOutput =
+                "Choisissez quel type d'itinéraire vous souhaitez"+sep+
+                "1. Normal"+sep+
+                "2. Simple"+sep+
+                "3. Composé"+sep+
+                "Bien essayé ^^"+sep+
+                "Erreur : Veuillez entrer un nombre parmi ceux donnés."+sep;
+
 
         assertEquals(expectedOutput, output);
     }
