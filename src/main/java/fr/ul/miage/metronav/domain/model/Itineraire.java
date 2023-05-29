@@ -25,4 +25,7 @@ public class Itineraire {
         return res;
     }
 
+    public List<Trajet> getTrajetList() {
+        return trajetList;
+    }
 }
