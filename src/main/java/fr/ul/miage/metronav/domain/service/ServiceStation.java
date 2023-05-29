@@ -5,7 +5,7 @@ import fr.ul.miage.metronav.domain.model.Station;
 
 import java.util.List;
 
-public interface StationService {
+public interface ServiceStation {
 
     public Station trouverPlusProcheStation(Position position, List<Station> listeStation);
 

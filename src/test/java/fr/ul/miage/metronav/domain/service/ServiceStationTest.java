@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StationServiceTest {
+public class ServiceStationTest {
 
     @Test
     public void testTrouverPlusProcheStationVide() {
@@ -15,7 +15,7 @@ public class StationServiceTest {
         Position position = new Position(0.0, 0.0);
         // Test lorsque la liste des stations est vide
         List<Station> listeStationsVide = new ArrayList<>();
-        Station stationPlusProcheVide = new StationServiceImpl().trouverPlusProcheStation(position, listeStationsVide);
+        Station stationPlusProcheVide = new ServiceStationImpl().trouverPlusProcheStation(position, listeStationsVide);
         Assertions.assertNull(stationPlusProcheVide);
     }
 
@@ -28,7 +28,7 @@ public class StationServiceTest {
         // Test avec une seule station dans la liste
         Station stationUnique = new Station("Station Unique", new Position(10.0, 10.0), 5, new ArrayList<>(), "");
         listeStationsUnique.add(stationUnique);
-        Station stationPlusProcheUnique = new StationServiceImpl().trouverPlusProcheStation(position, listeStationsUnique);
+        Station stationPlusProcheUnique = new ServiceStationImpl().trouverPlusProcheStation(position, listeStationsUnique);
         Assertions.assertEquals(stationUnique, stationPlusProcheUnique);
     }
 
@@ -50,7 +50,7 @@ public class StationServiceTest {
         Position position = new Position(0.0, 0.0);
 
         // Test avec plusieurs stations dans la liste
-        Station stationPlusProche = new StationServiceImpl().trouverPlusProcheStation(position, listeStations);
+        Station stationPlusProche = new ServiceStationImpl().trouverPlusProcheStation(position, listeStations);
         Assertions.assertEquals(stationA, stationPlusProche);
 
     }

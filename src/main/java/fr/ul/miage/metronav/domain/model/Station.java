@@ -1,6 +1,7 @@
 package fr.ul.miage.metronav.domain.model;
 
 import java.util.List;
+import java.util.Objects;
 
 
 public class Station {
@@ -36,10 +37,28 @@ public class Station {
     }
 
     public String getIncident() {
-        return incident;
+        return this.incident;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Station station = (Station) o;
+        return Objects.equals(nom, station.nom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom);
     }
 
     public Position getPosition(){
         return this.position;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNom() + " : " + this.getTemps_arret();
     }
 }

@@ -5,7 +5,7 @@ import fr.ul.miage.metronav.domain.model.Station;
 
 import java.util.List;
 
-public class StationServiceImpl implements StationService{
+public class ServiceStationImpl implements ServiceStation {
 
     @Override
     public Station trouverPlusProcheStation(Position position, List<Station> listeStation) {

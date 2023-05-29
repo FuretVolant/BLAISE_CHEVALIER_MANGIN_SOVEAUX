@@ -2,7 +2,7 @@ package fr.ul.miage.metronav.page;
 
 import fr.ul.miage.metronav.domain.model.Position;
 import fr.ul.miage.metronav.domain.model.Station;
-import fr.ul.miage.metronav.domain.service.StationServiceImpl;
+import fr.ul.miage.metronav.domain.service.ServiceStationImpl;
 import fr.ul.miage.metronav.util.ScannerDouble;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class GetPositionPage extends Page {
     public void display() {
         Position userPos = getPositionFromUser("Entrez votre position actuelle : ");
 
-        StationServiceImpl serviceStation = new StationServiceImpl();
+        ServiceStationImpl serviceStation = new ServiceStationImpl();
 
         Station closest = serviceStation.trouverPlusProcheStation(userPos, new ArrayList<>());
 

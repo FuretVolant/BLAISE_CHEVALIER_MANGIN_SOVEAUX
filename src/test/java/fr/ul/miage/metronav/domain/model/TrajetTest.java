@@ -2,7 +2,9 @@ package fr.ul.miage.metronav.domain.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class TrajetTest {
 
@@ -14,7 +16,10 @@ public class TrajetTest {
         Station stationArrivee = new Station("Gare du Nord",new Position(1.0, 2.0), 10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
-        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);
+        List<Ligne> lignes = new ArrayList<>();
+        lignes.add(new Ligne("Ligne 1"));
+        lignes.add(new Ligne("Ligne 4"));
+        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3,lignes);
 
         // Vérification de la station de départ du trajet
         assertEquals(stationDepart, trajet.getStationDepart());
@@ -28,7 +33,10 @@ public class TrajetTest {
         Station stationArrivee = new Station("Gare du Nord", new Position(1.0, 2.0),10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
-        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);
+        List<Ligne> lignes = new ArrayList<>();
+        lignes.add(new Ligne("Ligne 1"));
+        lignes.add(new Ligne("Ligne 4"));
+        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3, lignes);
 
         // Vérification de la station d'arrivée du trajet
         assertEquals(stationArrivee, trajet.getStationArrivee());
@@ -42,7 +50,10 @@ public class TrajetTest {
         Station stationArrivee = new Station("Gare du Nord", new Position(1.0, 2.0),10, Arrays.asList(new Ligne("L1")), null);
 
         // Création d'un trajet avec cette station de départ
-        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3);
+        List<Ligne> lignes = new ArrayList<>();
+        lignes.add(new Ligne("Ligne 1"));
+        lignes.add(new Ligne("Ligne 4"));
+        Trajet trajet = new Trajet(stationDepart, stationArrivee, 3,lignes);
 
         int duree = 3;
 

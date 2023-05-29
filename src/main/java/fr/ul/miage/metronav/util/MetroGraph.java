@@ -75,18 +75,55 @@ public class MetroGraph {
         lignesF.add(new Ligne("Ligne 2"));
         Station stationI = new Station("Station I", new Position(3.0, 6.0), 4, lignesI, "Incident Notable");
 
-        Trajet tragetAB = new Trajet(stationA,stationB, 40);
-        Trajet tragetBC = new Trajet(stationB,stationC, 30);
-        Trajet tragetBI = new Trajet(stationA,stationI, 1);
-        Trajet tragetAD = new Trajet(stationA,stationD, 17);
-        Trajet tragetDE = new Trajet(stationD,stationE, 12);
-        Trajet tragetEF = new Trajet(stationE,stationF, 13);
-        Trajet tragetCF = new Trajet(stationC,stationF, 15);
-        Trajet tragetGF = new Trajet(stationG,stationF, 40);
-        Trajet tragetGH = new Trajet(stationG,stationH, 18);
-        Trajet tragetHI = new Trajet(stationH,stationI, 1);
-        Trajet tragetGC = new Trajet(stationG,stationC, 2);
-        Trajet tragetCD = new Trajet(stationC,stationD, 2, "Trajet fermé pour travaux");//incident
+
+        List<Ligne> lignesAB = new ArrayList<>();
+        lignesAB.add(new Ligne("Ligne 2"));
+        Trajet tragetAB = new Trajet(stationA,stationB, 40,lignesAB);
+
+        List<Ligne> lignesBC = new ArrayList<>();
+        lignesBC.add(new Ligne("Ligne 1"));
+        Trajet tragetBC = new Trajet(stationB,stationC, 30,lignesBC);
+
+        List<Ligne> lignesBI = new ArrayList<>();
+        lignesBI.add(new Ligne("Ligne 2"));
+        Trajet tragetBI = new Trajet(stationB,stationI, 1,lignesBI);
+
+        List<Ligne> lignesAD = new ArrayList<>();
+        lignesAD.add(new Ligne("Ligne 3"));
+        Trajet tragetAD = new Trajet(stationA,stationD, 17,lignesAD);
+
+        List<Ligne> lignesDE = new ArrayList<>();
+        lignesDE.add(new Ligne("Ligne 4"));
+        Trajet tragetDE = new Trajet(stationD,stationE, 12,lignesDE);
+
+        List<Ligne> lignesEF = new ArrayList<>();
+        lignesEF.add(new Ligne("Ligne 4"));
+        Trajet tragetEF = new Trajet(stationE,stationF, 13,lignesEF);
+
+        List<Ligne> lignesCF = new ArrayList<>();
+        lignesCF.add(new Ligne("Ligne 1"));
+        Trajet tragetCF = new Trajet(stationC,stationF, 15,lignesCF);
+
+        List<Ligne> lignesGF = new ArrayList<>();
+        lignesGF.add(new Ligne("Ligne 1"));
+        lignesGF.add(new Ligne("Ligne 4"));
+        Trajet tragetGF = new Trajet(stationG,stationF, 40,lignesGF);
+
+        List<Ligne> lignesGH = new ArrayList<>();
+        lignesGH.add(new Ligne("Ligne 2"));
+        Trajet tragetGH = new Trajet(stationG,stationH, 18,lignesGH);
+
+        List<Ligne> lignesHI = new ArrayList<>();
+        lignesHI.add(new Ligne("Ligne 2"));
+        Trajet tragetHI = new Trajet(stationH,stationI, 1,lignesHI);
+
+        List<Ligne> lignesGC = new ArrayList<>();
+        lignesGC.add(new Ligne("Ligne 3"));
+        Trajet tragetGC = new Trajet(stationG,stationC, 2,lignesGC);
+
+        List<Ligne> lignesCD = new ArrayList<>();
+        lignesF.add(new Ligne("Ligne 2"));
+        Trajet tragetCD = new Trajet(stationC,stationD, 2, "Trajet fermé pour travaux",lignesCD);//incident
 
 
         this.stationList.add(stationA);
