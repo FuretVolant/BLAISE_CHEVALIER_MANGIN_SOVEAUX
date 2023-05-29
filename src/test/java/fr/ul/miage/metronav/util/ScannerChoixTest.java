@@ -69,7 +69,7 @@ public class ScannerChoixTest {
                 "2. Simple"+sep+
                 "3. Composé"+sep+
                 "Bien essayé ^^"+sep+
-                "Erreur : Veuillez entrer un nombre parmi ceux donnés."+sep;
+                "Erreur : Veuillez entrer un nombre valide."+sep;
 
 
         assertEquals(expectedOutput, output);
@@ -77,6 +77,27 @@ public class ScannerChoixTest {
 
     @Test
     public void testOutOfBoundInputChoix(){
+        choix.put(1, "Normal");
+        choix.put(2, "Simple");
+        choix.put(3, "Composé");
 
+        String input = "4";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        ScannerChoix scc = new ScannerChoix(choix, inputStream);
+        int result = scc.getValidIntInput("Choisissez quel type d'itinéraire vous souhaitez");
+
+        String output = outputStream.toString();
+
+
+        String expectedOutput =
+                "Choisissez quel type d'itinéraire vous souhaitez"+sep+
+                        "1. Normal"+sep+
+                        "2. Simple"+sep+
+                        "3. Composé"+sep+
+                        "Erreur : Veuillez entrer un nombre parmi ceux donnés."+sep;
+
+
+        assertEquals(expectedOutput, output);
     }
 }

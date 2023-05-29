@@ -38,7 +38,7 @@ public class ScannerChoix extends ScannerBase {
             } catch (Exception e) {
                 String className = e.getClass().getName();
                 if(className.equals(NumberFormatException.class.getName())){
-                    System.out.println("Erreur : Veuillez entrer un nombre parmi ceux donnés.");
+                    System.out.println("Erreur : Veuillez entrer un nombre valide.");
                     return -1;
                 }
                 if(className.equals(ArrayIndexOutOfBoundsException.class.getName())){
