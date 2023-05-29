@@ -1,9 +1,7 @@
 package fr.ul.miage.metronav.domain.service;
 
 import fr.ul.miage.metronav.data.StationLocalRepositoryImpl;
-import fr.ul.miage.metronav.data.StationRepository;
 import fr.ul.miage.metronav.data.TrajetLocalRepositoryImpl;
-import fr.ul.miage.metronav.data.TrajetRepository;
 import fr.ul.miage.metronav.domain.model.*;
 import fr.ul.miage.metronav.util.MetroGraph;
 import org.junit.jupiter.api.Test;
