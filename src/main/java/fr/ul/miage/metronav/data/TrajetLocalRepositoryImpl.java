@@ -10,7 +10,7 @@ public class TrajetLocalRepositoryImpl implements TrajetRepository{
 
     @Override
     public List<Trajet> getAllTrajet() {
-        return trajetList;
+        return this.trajetList;
     }
 
     public void setTrajetList(List<Trajet> trajetList){

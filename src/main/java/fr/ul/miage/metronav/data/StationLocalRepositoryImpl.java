@@ -12,7 +12,7 @@ public class StationLocalRepositoryImpl implements StationRepository {
 
     @Override
     public List<Station> getAllStation() {
-        return stationList;
+        return this.stationList;
     }
 
     public void setStationList(List<Station> stationList) {
