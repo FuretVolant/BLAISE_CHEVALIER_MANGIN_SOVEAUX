@@ -13,10 +13,8 @@ public class ScannerChoix extends ScannerBase {
         this.scanner = new Scanner(System.in);
     }
 
-    public ScannerChoix() {
-        this.scanner = new Scanner(System.in);
-    }
-    public ScannerChoix(ByteArrayInputStream inputStream) {
+    public ScannerChoix(HashMap<Integer, String> choix, ByteArrayInputStream inputStream) {
+        this.choix = choix;
         scanner = new Scanner(inputStream);
     }
 
@@ -40,10 +38,12 @@ public class ScannerChoix extends ScannerBase {
             } catch (Exception e) {
                 String className = e.getClass().getName();
                 if(className.equals(NumberFormatException.class.getName())){
-                    System.out.println("Erreur : Veuillez entrer un nombre entier valide.");
+                    System.out.println("Erreur : Veuillez entrer un nombre parmi ceux donnés.");
+                    return -1;
                 }
                 if(className.equals(ArrayIndexOutOfBoundsException.class.getName())){
                     System.out.println("Erreur : Veuillez entrer un nombre parmi ceux donnés.");
+                    return -1;
                 }
             }
         }
