@@ -1,15 +1,18 @@
 package fr.ul.miage.metronav.domain.service;
 
 import fr.ul.miage.metronav.domain.model.Ligne;
+import fr.ul.miage.metronav.domain.model.Station;
+
 import org.jgrapht.Graph;
 import org.jgrapht.alg.interfaces.AStarAdmissibleHeuristic;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-public class CustomHeuristic<Station> implements AStarAdmissibleHeuristic<Station> {
+
+
+public class CustomHeuristic implements AStarAdmissibleHeuristic<Station> {
     private Graph<Station, DefaultWeightedEdge> graph;
 
     int tempsArret;
@@ -25,16 +28,28 @@ public class CustomHeuristic<Station> implements AStarAdmissibleHeuristic<Statio
     }
 
     @Override
-    public double getCostEstimate(Station station_source, Station station_target) {
-        if(((fr.ul.miage.metronav.domain.model.Station)station_source).getNom().length() == 2){
-        for (Ligne l : ((fr.ul.miage.metronav.domain.model.Station)station_source).getLignes()) {
-            if(!stationTraversee.contains(l)){
-                stationTraversee.add(l);
+    public double getCostEstimate(Station stationSource, Station stationTarget) {
+        if(isStationGenerer(stationSource)){
+
+        for (Ligne ligne : stationSource.getLignes()) {
+            if(vuePourLaPremierFois(ligne)){
+                stationTraversee.add(ligne);
             }
         }
         }
-        return -stationTraversee.size()*1000;
+        return poid();
     }
 
+    private boolean isStationGenerer(Station station){
+        return station.getNom().length() == 2;
+    }
+
+    private boolean vuePourLaPremierFois(Ligne ligne){
+        return !stationTraversee.contains(ligne);
+    }
+
+    private int poid(){
+        return -stationTraversee.size()*1000;
+    }
 
 }
