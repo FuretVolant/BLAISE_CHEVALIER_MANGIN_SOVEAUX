@@ -12,6 +12,10 @@ public class Itineraire {
 
     }
 
+    public Itineraire() {
+
+    }
+
     public void ajoutTrajet(Trajet trajet){
         trajetList.add(trajet);
     }
