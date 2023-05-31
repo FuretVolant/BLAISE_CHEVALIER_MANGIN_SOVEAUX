@@ -18,14 +18,16 @@ public class GetCriterePage extends Page{
     HashMap<Integer, String> choixCritere = new HashMap<>();
     Station depart;
     Station arrivee;
-    private GetStationsImpl getStationsUC;
-    private GetItineraireImpl getItiUC;
+    private final GetStationsImpl getStationsUC;
+    private final GetItineraireImpl getItiUC;
 
     public GetCriterePage(Station depart, Station arrivee, GetStationsImpl getStationsUC, GetItineraireImpl getItiUC) {
         this.depart = depart;
         this.arrivee = arrivee;
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;
+
+        this.choixCritere.put(0,"Retour");
         this.choixCritere.put(1,"Rapide");
         this.choixCritere.put(2,"Simple");
         this.choixCritere.put(3,"Composé");
@@ -50,7 +52,7 @@ public class GetCriterePage extends Page{
             case 3 :
                 //TODO appel à la recherche d'itinéraire composé
                 break;
-
+                //TODO case 0 : retour
         }
 
         System.out.println(res.getTrajetList().toString());

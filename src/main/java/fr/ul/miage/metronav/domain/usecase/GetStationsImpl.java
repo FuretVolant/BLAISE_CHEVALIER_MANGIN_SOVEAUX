@@ -15,7 +15,7 @@ public class GetStationsImpl implements GetStations{
 
     @Override
     public List<Station> getAllStations() {
-        return repoStations.getAllStation();
+        return repoStations.getAllStations();
     }
 
     @Override

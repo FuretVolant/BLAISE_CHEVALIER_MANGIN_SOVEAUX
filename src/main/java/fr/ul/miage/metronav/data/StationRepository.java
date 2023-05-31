@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface StationRepository {
 
-    public List<Station> getAllStation();
+    public List<Station> getAllStations();
+
+    public List<Station> getAllStationsAccidents();
 }

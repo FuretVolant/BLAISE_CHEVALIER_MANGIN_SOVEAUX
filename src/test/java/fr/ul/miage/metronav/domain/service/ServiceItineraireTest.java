@@ -1,9 +1,7 @@
 package fr.ul.miage.metronav.domain.service;
 
 import fr.ul.miage.metronav.data.StationLocalRepositoryImpl;
-import fr.ul.miage.metronav.data.StationRepository;
 import fr.ul.miage.metronav.data.TrajetLocalRepositoryImpl;
-import fr.ul.miage.metronav.data.TrajetRepository;
 import fr.ul.miage.metronav.domain.model.*;
 import fr.ul.miage.metronav.util.MetroGraph;
 import org.junit.jupiter.api.Test;
@@ -26,7 +24,7 @@ public class ServiceItineraireTest {
         TrajetLocalRepositoryImpl trajetRepository = new TrajetLocalRepositoryImpl();
         trajetRepository.setTrajetList(metroGraph.getTrajetList());
 
-        List<Station> stationList = stationRepository.getAllStation();
+        List<Station> stationList = stationRepository.getAllStations();
         List<Trajet> trajetList = trajetRepository.getAllTrajet();
 
         Station stationA_depart = stationList.get(0);
@@ -51,7 +49,7 @@ public class ServiceItineraireTest {
         TrajetLocalRepositoryImpl trajetRepository = new TrajetLocalRepositoryImpl();
         trajetRepository.setTrajetList(metroGraph.getTrajetList());
 
-        List<Station> stationList = stationRepository.getAllStation();
+        List<Station> stationList = stationRepository.getAllStations();
         List<Trajet> trajetList = trajetRepository.getAllTrajet();
 
         Station stationA_depart = stationList.get(0);
