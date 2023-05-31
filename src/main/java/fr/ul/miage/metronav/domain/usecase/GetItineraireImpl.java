@@ -4,6 +4,9 @@ import fr.ul.miage.metronav.data.StationRepository;
 import fr.ul.miage.metronav.data.TrajetRepository;
 import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
+import fr.ul.miage.metronav.domain.model.Trajet;
+
+import java.util.List;
 
 public class GetItineraireImpl implements GetItineraire{
 
@@ -23,5 +26,10 @@ public class GetItineraireImpl implements GetItineraire{
     @Override
     public Itineraire getItineraireSimple(Position depart, Position arrivee) {
         return null;
+    }
+
+    @Override
+    public List<Trajet> getAllTrajets() {
+        return trajetRepository.getAllTrajet();
     }
 }
