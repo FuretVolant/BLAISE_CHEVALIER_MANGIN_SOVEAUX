@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LigneTest {
 
     @Test
-    public void testGetNumero() {
+    void testGetNumero() {
         // Création d'une ligne avec un numéro spécifique
         String numero = "L1";
         Ligne ligne = new Ligne(numero);

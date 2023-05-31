@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class StationTest {
 
     @Test
-    public void testGetNom() {
+    void testGetNom() {
         // Création d'une station
         Station station = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
 
@@ -16,7 +16,7 @@ public class StationTest {
     }
 
     @Test
-    public void testGetTempsArret() {
+    void testGetTempsArret() {
         // Création d'une station
         Station station = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
 
@@ -25,7 +25,7 @@ public class StationTest {
     }
 
     @Test
-    public void testGetLignes() {
+    void testGetLignes() {
         // Création d'une station
         Ligne ligne1 = new Ligne("L1");
         Ligne ligne2 = new Ligne("L2");
@@ -37,7 +37,7 @@ public class StationTest {
     }
 
     @Test
-    public void testGetIncident() {
+    void testGetIncident() {
         // Création d'une station sans incident
         Station stationSansIncident = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
 

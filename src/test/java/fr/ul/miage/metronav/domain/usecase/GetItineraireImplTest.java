@@ -3,8 +3,6 @@ import fr.ul.miage.metronav.data.StationLocalRepositoryImpl;
 import fr.ul.miage.metronav.data.TrajetLocalRepositoryImpl;
 import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
-import fr.ul.miage.metronav.domain.model.Station;
-import fr.ul.miage.metronav.domain.model.Trajet;
 import fr.ul.miage.metronav.domain.service.ServiceItineraire;
 import fr.ul.miage.metronav.domain.service.ServiceItineraireImpl;
 import fr.ul.miage.metronav.domain.service.ServiceStation;
@@ -19,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GetItineraireImplTest {
 
     @Test
-    public void getRapideItinéraireTest(){
+    void getRapideItinéraireTest(){
 
         MetroGraph metroGraph = new MetroGraph();
         StationLocalRepositoryImpl stationRepository = new StationLocalRepositoryImpl();
@@ -42,7 +40,7 @@ public class GetItineraireImplTest {
     }
 
     @Test
-    public void getSimpleItinéraireTest(){
+    void getSimpleItinéraireTest(){
 
         MetroGraph metroGraph = new MetroGraph();
         StationLocalRepositoryImpl stationRepository = new StationLocalRepositoryImpl();

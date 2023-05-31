@@ -9,7 +9,7 @@ import java.util.List;
 public class TrajetTest {
 
     @Test
-    public void testGetStationDepart() {
+    void testGetStationDepart() {
         // Création d'une station de départ
         Station stationDepart = new Station("Gare Centrale",new Position(1.0, 2.0), 5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
@@ -26,7 +26,7 @@ public class TrajetTest {
     }
 
     @Test
-    public void testGetStationArrivee() {
+    void testGetStationArrivee() {
         // Création d'une station de départ
         Station stationDepart = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
@@ -43,7 +43,7 @@ public class TrajetTest {
     }
 
     @Test
-    public void testGetDuree() {
+    void testGetDuree() {
         // Création d'une station de départ
         Station stationDepart = new Station("Gare Centrale", new Position(1.0, 2.0),5, Arrays.asList(new Ligne("L1")), null);
         // Création d'une station d'arrrivée
