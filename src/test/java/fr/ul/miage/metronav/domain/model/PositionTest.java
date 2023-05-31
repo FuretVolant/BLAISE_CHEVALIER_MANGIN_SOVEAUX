@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PositionTest {
 
     @Test
-    public void testGetLongitude() {
+    void testGetLongitude() {
         // Création d'une position avec une longitude spécifique
         double longitude = 2.345;
         double latitude = 48.789;
@@ -18,7 +18,7 @@ public class PositionTest {
     }
 
     @Test
-    public void testSetLongitude() {
+    void testSetLongitude() {
         // Création d'une position
         Position position = new Position(0.0, 0.0);
 
@@ -31,7 +31,7 @@ public class PositionTest {
     }
 
     @Test
-    public void testGetLatitude() {
+    void testGetLatitude() {
         // Création d'une position avec une latitude spécifique
         double longitude = 2.345;
         double latitude = 48.789;
@@ -42,7 +42,7 @@ public class PositionTest {
     }
 
     @Test
-    public void testSetLatitude() {
+    void testSetLatitude() {
         // Création d'une position
         Position position = new Position(0.0, 0.0);
 
@@ -55,7 +55,7 @@ public class PositionTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         // Création d'une position
         double longitude = 2.345;
         double latitude = 48.789;

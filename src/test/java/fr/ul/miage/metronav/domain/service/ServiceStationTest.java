@@ -10,7 +10,7 @@ import java.util.List;
 public class ServiceStationTest {
 
     @Test
-    public void testTrouverPlusProcheStationVide() {
+    void testTrouverPlusProcheStationVide() {
         // Position de référence pour les tests
         Position position = new Position(0.0, 0.0);
         // Test lorsque la liste des stations est vide
@@ -20,7 +20,7 @@ public class ServiceStationTest {
     }
 
     @Test
-    public void testTrouverPlusProcheStationUnique() {
+    void testTrouverPlusProcheStationUnique() {
         // Position de référence pour les tests
         Position position = new Position(0.0, 0.0);
 
@@ -33,7 +33,7 @@ public class ServiceStationTest {
     }
 
     @Test
-    public void testTrouverPlusProcheStationList() {
+    void testTrouverPlusProcheStationList() {
         // Création de quelques stations pour les tests
         Station stationA = new Station("Station A", new Position(-1.0, 2.0), 3, new ArrayList<>(), "");
         Station stationB = new Station("Station B", new Position(3.0, 4.0), 2, new ArrayList<>(), "");

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ItineraireTest {
 
     @Test
-    public void testAjoutTrajet() {
+    void testAjoutTrajet() {
         // Création d'un itinéraire vide
         List<Trajet> trajets = new ArrayList<>();
         Itineraire itineraire = new Itineraire(trajets);
@@ -37,7 +37,7 @@ public class ItineraireTest {
     }
 
     @Test
-    public void testGetTempsTotal() {
+    void testGetTempsTotal() {
 
         // Création d'une station de départ
         Station stationDepart1 = new Station("Gare Centrale",new Position(1.0, 2.0), 5, Arrays.asList(new Ligne("L1")), null);
