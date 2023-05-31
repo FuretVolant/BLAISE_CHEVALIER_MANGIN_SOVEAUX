@@ -1,6 +1,7 @@
 package fr.ul.miage.metronav.domain.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Trajet {
 
@@ -49,5 +50,9 @@ public class Trajet {
 
     public String toString(){
         return "["+this.stationDepart + " : " + this.stationArrivee+"]";
+    }
+
+    public boolean isSafe(){
+        return Objects.equals(incident, "");
     }
 }

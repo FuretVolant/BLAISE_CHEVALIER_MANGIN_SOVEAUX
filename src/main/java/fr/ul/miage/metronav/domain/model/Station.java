@@ -59,6 +59,10 @@ public class Station {
 
     @Override
     public String toString() {
-        return this.getNom() + " : " + this.getTemps_arret();
+        return this.getNom();
+    }
+
+    public boolean isSafe(){
+        return Objects.equals(incident, "");
     }
 }

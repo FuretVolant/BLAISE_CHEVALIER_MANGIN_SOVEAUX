@@ -14,44 +14,12 @@ import org.jgrapht.graph.SimpleWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ServiceItineraireImpl implements ServiceItineraire {
     @Override
     public Itineraire calculerItineraireRapide(Station depart, Station arrivee, List<Station> stationList, List<Trajet> trajetList) {
         // Création du graphe
-        Graph<Station, DefaultWeightedEdge> metroGraph = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
-
-
-        for (Trajet trajet : trajetList) {
-            if (Objects.equals(trajet.getStationArrivee().getIncident(), "") && Objects.equals(trajet.getStationDepart().getIncident(), "") && Objects.equals(trajet.getIncident(), "")) {
-                if (!metroGraph.containsVertex(trajet.getStationDepart())) {
-                    metroGraph.addVertex(trajet.getStationDepart());
-                    System.out.println(trajet.getStationDepart());
-                }
-                if (!metroGraph.containsVertex(trajet.getStationArrivee())) {
-                    metroGraph.addVertex(trajet.getStationArrivee());
-                    System.out.println(trajet.getStationArrivee());
-                }
-
-                String nom_depart = trajet.getStationArrivee().getNom().substring(8) + trajet.getStationDepart().getNom().substring(8);
-                String nom_arrivee = trajet.getStationDepart().getNom().substring(8) + trajet.getStationArrivee().getNom().substring(8);
-
-                Station station_poid_arrivee = new Station(nom_depart, trajet.getStationArrivee().getPosition(), trajet.getStationArrivee().getTemps_arret() / 2, trajet.getStationArrivee().getLignes(), trajet.getStationArrivee().getIncident());
-                Station station_poid_depart = new Station(nom_arrivee, trajet.getStationDepart().getPosition(), trajet.getStationDepart().getTemps_arret() / 2, trajet.getStationDepart().getLignes(), trajet.getStationDepart().getIncident());
-
-                metroGraph.addVertex(station_poid_arrivee);
-                metroGraph.addVertex(station_poid_depart);
-
-                DefaultWeightedEdge edge_poid1 = metroGraph.addEdge(station_poid_arrivee, trajet.getStationArrivee());
-                metroGraph.setEdgeWeight(edge_poid1, station_poid_arrivee.getTemps_arret());
-                DefaultWeightedEdge edge_poid2 = metroGraph.addEdge(station_poid_depart, trajet.getStationDepart());
-                metroGraph.setEdgeWeight(edge_poid2, station_poid_arrivee.getTemps_arret());
-                DefaultWeightedEdge edge1 = metroGraph.addEdge(station_poid_depart, station_poid_arrivee);
-                metroGraph.setEdgeWeight(edge1, trajet.getDuree());
-
-            }
-        }
+        Graph<Station, DefaultWeightedEdge> metroGraph =generateGraph(stationList, trajetList);
 
         // Création de l'algorithme A*
         ShortestPathAlgorithm<Station, DefaultWeightedEdge> shortestPathAlgorithm = new DijkstraShortestPath<>(metroGraph);
@@ -73,41 +41,9 @@ public class ServiceItineraireImpl implements ServiceItineraire {
     @Override
     public Itineraire calculerItineraireSimple(Station depart, Station arrivee, List<Station> stationList, List<Trajet> trajetList) {
         // Création du graphe
-        Graph<Station, DefaultWeightedEdge> metroGraph = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
-
-
-        for (Trajet trajet : trajetList) {
-            if (Objects.equals(trajet.getStationArrivee().getIncident(), "") && Objects.equals(trajet.getStationDepart().getIncident(), "") && Objects.equals(trajet.getIncident(), "")) {
-                if (!metroGraph.containsVertex(trajet.getStationDepart())) {
-                    metroGraph.addVertex(trajet.getStationDepart());
-                    System.out.println(trajet.getStationDepart());
-                }
-                if (!metroGraph.containsVertex(trajet.getStationArrivee())) {
-                    metroGraph.addVertex(trajet.getStationArrivee());
-                    System.out.println(trajet.getStationArrivee());
-                }
-
-                String nom_depart = trajet.getStationArrivee().getNom().substring(8) + trajet.getStationDepart().getNom().substring(8);
-                String nom_arrivee = trajet.getStationDepart().getNom().substring(8) + trajet.getStationArrivee().getNom().substring(8);
-
-                Station station_poid_arrivee = new Station(nom_depart, trajet.getStationArrivee().getPosition(), trajet.getStationArrivee().getTemps_arret() / 2 , trajet.getStationArrivee().getLignes(), trajet.getStationArrivee().getIncident());
-                Station station_poid_depart = new Station(nom_arrivee, trajet.getStationDepart().getPosition(), trajet.getStationDepart().getTemps_arret() / 2, trajet.getStationDepart().getLignes(), trajet.getStationDepart().getIncident());
-
-                metroGraph.addVertex(station_poid_arrivee);
-                metroGraph.addVertex(station_poid_depart);
-
-                DefaultWeightedEdge edge_poid1 = metroGraph.addEdge(station_poid_arrivee, trajet.getStationArrivee());
-                metroGraph.setEdgeWeight(edge_poid1, station_poid_arrivee.getTemps_arret());
-                DefaultWeightedEdge edge_poid2 = metroGraph.addEdge(station_poid_depart, trajet.getStationDepart());
-                metroGraph.setEdgeWeight(edge_poid2, station_poid_arrivee.getTemps_arret());
-                DefaultWeightedEdge edge1 = metroGraph.addEdge(station_poid_depart, station_poid_arrivee);
-                metroGraph.setEdgeWeight(edge1, trajet.getDuree());
-
-            }
-        }
-
+        Graph<Station, DefaultWeightedEdge> metroGraph = generateGraph(stationList, trajetList);
         // Création de l'algorithme A*
-        ShortestPathAlgorithm<Station, DefaultWeightedEdge> shortestPathAlgorithm = new AStarShortestPath<>(metroGraph, new CustomHeuristic<Station>(metroGraph));
+        ShortestPathAlgorithm<Station, DefaultWeightedEdge> shortestPathAlgorithm = new AStarShortestPath<>(metroGraph, new CustomHeuristic(metroGraph));
 
         // Recherche de l'itinéraire optimal
         GraphPath<Station, DefaultWeightedEdge> shortestPath = shortestPathAlgorithm.getPath(depart, arrivee);
@@ -149,5 +85,47 @@ public class ServiceItineraireImpl implements ServiceItineraire {
         return s.getNom().length()!= 2;
     }
 
+    private String getStationID(Station station){
+        return station.getNom().substring(8);
+    }
 
+    private Graph<Station, DefaultWeightedEdge> generateGraph(List<Station> stationList, List<Trajet> trajetList){
+        // Création du graphe
+        Graph<Station, DefaultWeightedEdge> metroGraph = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
+
+        for (Station station: stationList) {
+            metroGraph.addVertex(station);
+        }
+
+
+        for (Trajet trajet : trajetList) {
+
+            Station stationArrivee = trajet.getStationArrivee();
+            Station stationDepart = trajet.getStationDepart();
+
+            if (stationArrivee.isSafe() && stationDepart.isSafe() && trajet.isSafe()) {
+
+                String nom_depart_poid = getStationID(stationArrivee) + getStationID(stationDepart);
+                String nom_arrivee_poid = getStationID(stationDepart) + getStationID(stationArrivee);
+
+                Station station_poid_arrivee = new Station(nom_depart_poid, stationArrivee.getPosition(), stationArrivee.getTemps_arret() / 2 , trajet.getLignes(), stationArrivee.getIncident());
+                Station station_poid_depart = new Station(nom_arrivee_poid,stationDepart.getPosition(), stationDepart.getTemps_arret() / 2, trajet.getLignes(), stationDepart.getIncident());
+
+                metroGraph.addVertex(station_poid_arrivee);
+                metroGraph.addVertex(station_poid_depart);
+
+                DefaultWeightedEdge edge_poid_arrive = metroGraph.addEdge(station_poid_arrivee, stationArrivee);
+                metroGraph.setEdgeWeight(edge_poid_arrive, station_poid_arrivee.getTemps_arret());
+
+                DefaultWeightedEdge edge_poid_depart = metroGraph.addEdge(station_poid_depart, stationDepart);
+                metroGraph.setEdgeWeight(edge_poid_depart, station_poid_arrivee.getTemps_arret());
+
+                DefaultWeightedEdge edge = metroGraph.addEdge(station_poid_depart, station_poid_arrivee);
+                metroGraph.setEdgeWeight(edge, trajet.getDuree());
+
+            }
+
+        }
+        return metroGraph;
+    }
 }
