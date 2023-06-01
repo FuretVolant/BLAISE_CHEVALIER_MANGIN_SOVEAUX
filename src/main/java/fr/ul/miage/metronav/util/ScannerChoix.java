@@ -4,14 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.util.Map;
 import java.util.Scanner;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class ScannerChoix extends ScannerBase {
 
-    private static final Logger LOGGER = Logger.getLogger(ScannerChoix.class.getName());
-
-    private final Map<Integer, String> choix;
+    private Map<Integer, String> choix;
 
     public ScannerChoix(Map<Integer, String> choix) {
         this.choix = choix;
@@ -27,23 +22,23 @@ public class ScannerChoix extends ScannerBase {
         while (true) {
             try {
                 displayChoices();
-                LOGGER.log(Level.INFO, prompt);
+                System.out.println(prompt);
                 String input = scanner.nextLine();
                 int value = Integer.parseInt(input);
                 if (isValidChoice(value)) {
                     return value;
                 }
-                LOGGER.log(Level.WARNING, "Erreur : Veuillez entrer un nombre parmi ceux donnés.");
+                System.out.println("Erreur : Veuillez entrer un nombre parmi ceux donnés.");
             } catch (NumberFormatException e) {
-                LOGGER.log(Level.WARNING, "Erreur : Veuillez entrer un nombre valide.");
+                System.out.println("Erreur : Veuillez entrer un nombre valide.");
             }
         }
     }
 
     private void displayChoices() {
-        LOGGER.log(Level.INFO, "Choix disponibles :");
+        System.out.println("Choix disponibles :");
         for (Map.Entry<Integer, String> entry : choix.entrySet()) {
-            LOGGER.log(Level.INFO, entry.getKey() + ". " + entry.getValue());
+            System.out.println(entry.getKey() + ". " + entry.getValue());
         }
     }
 

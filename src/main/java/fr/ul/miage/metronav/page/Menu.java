@@ -25,7 +25,7 @@ public class Menu extends Page {
         //les attributs faut les inititialiser
         //gros chien
         //jte deteste
-        //ECRIRE JUSTE "this.choix = new HashMap<>();" C'EST DUR ?!
+        this.choix = new HashMap<>();
         //enculé
 
 
