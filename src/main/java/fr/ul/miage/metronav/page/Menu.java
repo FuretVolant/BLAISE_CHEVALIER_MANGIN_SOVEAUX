@@ -21,6 +21,13 @@ public class Menu extends Page {
         super();
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;
+        //Nathan sale fdp
+        //les attributs faut les inititialiser
+        //gros chien
+        //jte deteste
+        //ECRIRE JUSTE "this.choix = new HashMap<>();" C'EST DUR ?!
+        //enculé
+
 
         this.choix.put(1,"Chercher un itinéraire");
         this.choix.put(2,"Voir toutes les stations");
