@@ -6,5 +6,5 @@ import fr.ul.miage.metronav.domain.model.Trajet;
 import java.util.List;
 
 public interface TrajetRepository {
-    public List<Trajet> getAllTrajet();
+    List<Trajet> getAllTrajet();
 }

@@ -25,7 +25,7 @@ public class StationRepositoryTest {
         StationLocalRepositoryImpl stationRepository = new StationLocalRepositoryImpl();
         stationRepository.setStationList(stationList);
 
-        assertEquals(stationList,stationRepository.getAllStation());
+        assertEquals(stationList,stationRepository.getAllStations());
 
     }
 

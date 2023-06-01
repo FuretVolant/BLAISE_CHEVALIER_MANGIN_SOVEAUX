@@ -5,6 +5,7 @@ import fr.ul.miage.metronav.domain.model.Station;
 import fr.ul.miage.metronav.domain.service.ServiceStationImpl;
 import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetItineraireImpl;
+import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.domain.usecase.GetStationsImpl;
 import fr.ul.miage.metronav.util.ScannerDouble;
 
@@ -12,10 +13,10 @@ import java.util.ArrayList;
 
 public class GetDestinationPage extends Page{
     private Station closest;
-    private GetStationsImpl getStationsUC;
-    private GetItineraireImpl getItiUC;
+    private GetStations getStationsUC;
+    private GetItineraire getItiUC;
 
-    public GetDestinationPage(Station closest, GetStationsImpl getStationsUC, GetItineraireImpl getItiUC) {
+    public GetDestinationPage(Station closest, GetStations getStationsUC, GetItineraire getItiUC) {
         this.closest = closest;
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;

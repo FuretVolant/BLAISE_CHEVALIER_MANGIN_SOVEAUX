@@ -1,6 +1,8 @@
 package fr.ul.miage.metronav.page;
 
+import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetItineraireImpl;
+import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.domain.usecase.GetStationsImpl;
 import fr.ul.miage.metronav.util.ScannerChoix;
 
@@ -10,12 +12,12 @@ import java.util.HashMap;
 public class Menu extends Page {
 
 
-    private GetStationsImpl getStationsUC;
-    private GetItineraireImpl getItiUC;
+    private GetStations getStationsUC;
+    private GetItineraire getItiUC;
 
     HashMap<Integer, String> choix;
 
-    public Menu(GetStationsImpl getStationsUC, GetItineraireImpl getItiUC) {
+    public Menu(GetStations getStationsUC, GetItineraire getItiUC) {
         super();
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;

@@ -6,10 +6,12 @@ import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
 import fr.ul.miage.metronav.domain.model.Station;
 
+import fr.ul.miage.metronav.domain.model.Trajet;
 import fr.ul.miage.metronav.domain.service.ServiceItineraireRapide;
 import fr.ul.miage.metronav.domain.service.ServiceItineraireSimple;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireSimpleImpl;
 import fr.ul.miage.metronav.domain.service.ServiceStation;
+
+import java.util.List;
 
 public class GetItineraireImpl implements GetItineraire{
 
@@ -17,7 +19,6 @@ public class GetItineraireImpl implements GetItineraire{
     TrajetRepository trajetRepository;
     ServiceStation serviceStation;
     ServiceItineraireSimple serviceItineraireSimple;
-
     ServiceItineraireRapide serviceItineraireRapide;
 
 
@@ -32,18 +33,18 @@ public class GetItineraireImpl implements GetItineraire{
     @Override
     public Itineraire getItineraireRapide(Position depart, Position arrivee) {
 
-        Station stationDepart = serviceStation.trouverPlusProcheStation(depart, stationRepository.getAllStation());
-        Station stationArrivee = serviceStation.trouverPlusProcheStation(arrivee, stationRepository.getAllStation());
+        Station stationDepart = serviceStation.trouverPlusProcheStation(depart, stationRepository.getAllStations());
+        Station stationArrivee = serviceStation.trouverPlusProcheStation(arrivee, stationRepository.getAllStations());
 
-        return serviceItineraireRapide.calculerItineraireRapide(stationDepart,  stationArrivee,  stationRepository.getAllStation(), trajetRepository.getAllTrajet());
+        return serviceItineraireRapide.calculerItineraireRapide(stationDepart,  stationArrivee,  stationRepository.getAllStations(), trajetRepository.getAllTrajet());
     }
 
     @Override
     public Itineraire getItineraireSimple(Position depart, Position arrivee) {
-        Station stationDepart = serviceStation.trouverPlusProcheStation(depart, stationRepository.getAllStation());
-        Station stationArrivee = serviceStation.trouverPlusProcheStation(arrivee, stationRepository.getAllStation());
+        Station stationDepart = serviceStation.trouverPlusProcheStation(depart, stationRepository.getAllStations());
+        Station stationArrivee = serviceStation.trouverPlusProcheStation(arrivee, stationRepository.getAllStations());
 
-        return serviceItineraireSimple.calculerItineraireSimple(stationDepart,  stationArrivee,  stationRepository.getAllStation(), trajetRepository.getAllTrajet());
+        return serviceItineraireSimple.calculerItineraireSimple(stationDepart,  stationArrivee,  stationRepository.getAllStations(), trajetRepository.getAllTrajet());
     }
 
 

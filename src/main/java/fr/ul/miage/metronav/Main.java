@@ -2,6 +2,8 @@ package fr.ul.miage.metronav;
 
 import fr.ul.miage.metronav.data.StationLocalRepositoryImpl;
 import fr.ul.miage.metronav.data.TrajetLocalRepositoryImpl;
+import fr.ul.miage.metronav.domain.service.*;
+import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetItineraireImpl;
 import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.domain.usecase.GetStationsImpl;
@@ -16,10 +18,19 @@ public class Main {
         TrajetLocalRepositoryImpl trajetRepository = new TrajetLocalRepositoryImpl();
         trajetRepository.setTrajetList(metroGraph.getTrajetList());
 
-        GetStationsImpl getStationsUC = new GetStationsImpl(stationRepository);
-        GetItineraireImpl getItiUC = new GetItineraireImpl(stationRepository, trajetRepository);
+        ServiceItineraireRapide serviceItineraireRapide = new ServiceItineraireRapideImpl();
 
-        Menu menu = new Menu(getStationsUC, getItiUC);
+        ServiceItineraireSimple serviceItineraireSimple = new ServiceItineraireSimpleImpl();
+
+
+
+        ServiceStation serviceStation = new ServiceStationImpl();
+
+        GetStations getStations = new GetStationsImpl(stationRepository);
+
+        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraireSimple, serviceItineraireRapide);
+
+        Menu menu = new Menu(getStations, getItineraireUseCase);
         menu.display();
     }
 }
