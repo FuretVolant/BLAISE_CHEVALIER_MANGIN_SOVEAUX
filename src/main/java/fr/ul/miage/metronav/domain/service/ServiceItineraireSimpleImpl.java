@@ -7,12 +7,7 @@ import fr.ul.miage.metronav.domain.model.Trajet;
 
 import java.util.*;
 
-public class ServiceItineraireDijkstra implements ServiceItineraire {
-    @Override
-    public Itineraire calculerItineraireRapide(Station depart, Station arrive, List<Station> stationList, List<Trajet> trajetList) {
-        return null;
-    }
-
+public class ServiceItineraireSimpleImpl extends PathFinder implements ServiceItineraireSimple{
     @Override
     public Itineraire calculerItineraireSimple(Station stationDepart , Station stationArrivee, List<Station> stationList, List<Trajet> trajetList) {
         Map<Station, Integer> distances = new HashMap<>();
@@ -27,7 +22,6 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
             Station currentStation = queue.poll();
             visitedStations.add(currentStation);
 
-
             for (Station neighborStation : getNeighborStation(currentStation, trajetList)) {
                 if (neighborStation.isSafe()) {
 
@@ -40,11 +34,8 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
                         int newDistance = distances.get(currentStation) + lineChangeTrajet;//on augmente la valeur de la distance de la station courrante
 
                         if (!distances.containsKey(neighborStation) || newDistance < distances.get(neighborStation)) {
-
                             distances.put(neighborStation, newDistance);
-
                             previousStations.put(neighborStation, currentStation);
-
                             queue.offer(neighborStation);
                         }
                     }
@@ -52,14 +43,9 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
             }
         }
 
-        System.out.println(previousStations);
-        System.out.println(distances);
-
         List<Station> itineraireStation = buildPath(previousStations, stationArrivee);
 
-        System.out.println(itineraireStation);
-
-        return buildItineraire(itineraireStation, trajetList);
+        return stationListToItineraire(stationList, trajetList);
     }
 
     private List<Station> buildPath(Map<Station, Station> previousStations, Station station) {
@@ -79,34 +65,21 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
         List<Station> neighborList = new ArrayList<>();
 
         for (Trajet trajet : trajetList) {
-            if (trajet.isSafe()) {
-                if (trajet.getStationDepart().equals(station)) {
-                    neighborList.add(trajet.getStationArrivee());
-                } else if (trajet.getStationArrivee().equals(station)) {
-                    neighborList.add(trajet.getStationDepart());
-                }
+            if (trajet.isSafe() && isStationMatch(station, trajet)) {
+                Station neighborStation = getNeighborStationFromTrajet(station, trajet);
+                neighborList.add(neighborStation);
             }
         }
 
         return neighborList;
     }
 
-    private Itineraire buildItineraire(List<Station> stationList, List<Trajet> trajetList) {
-        List<Trajet> trajetListItineraire = new ArrayList<>();
+    private boolean isStationMatch(Station station, Trajet trajet) {
+        return trajet.getStationDepart().equals(station) || trajet.getStationArrivee().equals(station);
+    }
 
-        for (int i = 0; stationList.size() > i; i++) {
-            if (i >= 1) {
-                for (Trajet trajet : trajetList) {
-                    if (trajet.getStationArrivee().equals(stationList.get(i)) && trajet.getStationDepart().equals(stationList.get(i - 1))) {
-                        trajetListItineraire.add(trajet);
-                    } else if (trajet.getStationDepart().equals(stationList.get(i)) && trajet.getStationArrivee().equals(stationList.get(i - 1))) {
-                        trajetListItineraire.add(trajet);
-                    }
-                }
-            }
-        }
-
-        return new Itineraire(trajetListItineraire);
+    private Station getNeighborStationFromTrajet(Station station, Trajet trajet) {
+        return trajet.getStationDepart().equals(station) ? trajet.getStationArrivee() : trajet.getStationDepart();
     }
 
     private Trajet getTrajet(Station stationX, Station stationY, List<Trajet> trajetList) {
@@ -119,7 +92,7 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
         }
         return null;
     }
-    public boolean sameLine(Trajet precedent, Trajet courant){
+    boolean sameLine(Trajet precedent, Trajet courant){
         boolean sameLigne = false;
 
         if (precedent != null) {
@@ -129,12 +102,9 @@ public class ServiceItineraireDijkstra implements ServiceItineraire {
                     break;
                 }
             }
-
         }else{
             sameLigne = true;
         }
         return sameLigne;
     }
 }
-
-

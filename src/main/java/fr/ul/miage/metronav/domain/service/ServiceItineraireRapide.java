@@ -6,9 +6,8 @@ import fr.ul.miage.metronav.domain.model.Trajet;
 
 import java.util.List;
 
-public interface ServiceItineraire {
+public interface ServiceItineraireRapide {
 
     public Itineraire calculerItineraireRapide(Station depart, Station arrive, List<Station> stationList, List<Trajet> trajetList);
 
-    public Itineraire calculerItineraireSimple(Station depart, Station arrive, List<Station> stationList, List<Trajet> trajetList);
 }

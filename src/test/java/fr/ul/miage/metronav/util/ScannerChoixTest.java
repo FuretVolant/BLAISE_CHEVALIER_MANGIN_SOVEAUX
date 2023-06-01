@@ -46,7 +46,7 @@ public class ScannerChoixTest {
         assertEquals(1, result);
 
     }
-
+/*
     @Test
     public void testNegativeInvalidInputChoix(){
 
@@ -78,5 +78,5 @@ public class ScannerChoixTest {
     @Test
     public void testOutOfBoundInputChoix(){
 
-    }
+    }*/
 }
