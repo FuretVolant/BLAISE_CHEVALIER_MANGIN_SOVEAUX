@@ -69,7 +69,7 @@ public class ScannerChoixTest {
                 "2. Simple"+sep+
                 "3. Composé"+sep+
                 "Bien essayé ^^"+sep+
-                "Erreur : Veuillez entrer un nombre valide."+sep;
+                "Erreur : Veuillez entrer un nombre parmi ceux donnés."+sep;
 
 
         assertEquals(expectedOutput, output);
@@ -88,6 +88,7 @@ public class ScannerChoixTest {
         int result = scc.getValidIntInput("Choisissez quel type d'itinéraire vous souhaitez");
 
         String output = outputStream.toString();
+
 
 
         String expectedOutput =

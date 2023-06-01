@@ -3,16 +3,12 @@ import fr.ul.miage.metronav.data.StationLocalRepositoryImpl;
 import fr.ul.miage.metronav.data.TrajetLocalRepositoryImpl;
 import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
-import fr.ul.miage.metronav.domain.service.ServiceItineraire;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireImpl;
-import fr.ul.miage.metronav.domain.service.ServiceStation;
-import fr.ul.miage.metronav.domain.service.ServiceStationImpl;
+
+import fr.ul.miage.metronav.domain.service.*;
 import fr.ul.miage.metronav.util.MetroGraph;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetItineraireImplTest {
 
@@ -25,11 +21,15 @@ public class GetItineraireImplTest {
         TrajetLocalRepositoryImpl trajetRepository = new TrajetLocalRepositoryImpl();
         trajetRepository.setTrajetList(metroGraph.getTrajetList());
 
-        ServiceItineraire serviceItineraire = new ServiceItineraireImpl();
+        ServiceItineraireRapide serviceItineraireRapide = new ServiceItineraireRapideImpl();
+
+        ServiceItineraireSimple serviceItineraireSimple = new ServiceItineraireSimpleImpl();
+
+
 
         ServiceStation serviceStation = new ServiceStationImpl();
 
-        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraire);
+        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraireSimple, serviceItineraireRapide);
 
         Position depart = new Position(0.0, 0.0);
         Position arrivee = new Position(0.0, 6.0);
@@ -48,11 +48,14 @@ public class GetItineraireImplTest {
         TrajetLocalRepositoryImpl trajetRepository = new TrajetLocalRepositoryImpl();
         trajetRepository.setTrajetList(metroGraph.getTrajetList());
 
-        ServiceItineraire serviceItineraire = new ServiceItineraireImpl();
+        ServiceItineraireRapide serviceItineraireRapide = new ServiceItineraireRapideImpl();
+
+        ServiceItineraireSimple serviceItineraireSimple = new ServiceItineraireSimpleImpl();
+
 
         ServiceStation serviceStation = new ServiceStationImpl();
 
-        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraire);
+        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraireSimple, serviceItineraireRapide);
 
         Position depart = new Position(0.0, 0.0);
         Position arrivee = new Position(0.0, 6.0);
