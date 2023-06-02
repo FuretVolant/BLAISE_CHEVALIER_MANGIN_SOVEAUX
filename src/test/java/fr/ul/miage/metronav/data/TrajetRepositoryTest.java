@@ -1,6 +1,5 @@
 package fr.ul.miage.metronav.data;
 
-import fr.ul.miage.metronav.domain.model.Ligne;
 import fr.ul.miage.metronav.domain.model.Position;
 import fr.ul.miage.metronav.domain.model.Station;
 import fr.ul.miage.metronav.domain.model.Trajet;

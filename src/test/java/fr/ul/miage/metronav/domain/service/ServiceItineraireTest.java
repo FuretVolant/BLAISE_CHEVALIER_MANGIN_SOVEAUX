@@ -49,9 +49,9 @@ class ServiceItineraireTest {
         trajets.add(trajet5);
         trajets.add(trajet6);
 
-        ServiceItineraire serviceItineraire = new ServiceItineraireImpl();
-        Itineraire i = serviceItineraire.calculerItineraireRapide(stationA_depart, stationH_arrivee, stationList, trajetList);
-        assertEquals("[[Station A : 5 : Station D : 4], [Station D : 4 : Station E : 4], [Station E : 4 : Station F : 4], [Station C : 7 : Station F : 4], [Station G : 4 : Station C : 7], [Station G : 4 : Station H : 4]]", i.getTrajetList().toString());
+
+        Itineraire i = serviceItineraire.calculerItineraireRapide(stationA, stationH, stationList, trajetList);
+        assertEquals(trajets, i.getTrajetList());
     }
 
     @Test

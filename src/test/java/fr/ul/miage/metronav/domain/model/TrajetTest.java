@@ -1,4 +1,5 @@
 package fr.ul.miage.metronav.domain.model;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 

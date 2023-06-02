@@ -1,10 +1,7 @@
 package fr.ul.miage.metronav.data;
 
-import fr.ul.miage.metronav.domain.model.Ligne;
 import fr.ul.miage.metronav.domain.model.Position;
 import fr.ul.miage.metronav.domain.model.Station;
-import fr.ul.miage.metronav.domain.model.Trajet;
-import fr.ul.miage.metronav.util.MetroGraph;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
