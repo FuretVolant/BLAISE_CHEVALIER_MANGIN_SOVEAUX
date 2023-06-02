@@ -22,8 +22,6 @@ public class Main {
 
         ServiceItineraireSimple serviceItineraireSimple = new ServiceItineraireSimpleImpl();
 
-
-
         ServiceStation serviceStation = new ServiceStationImpl();
 
         GetStations getStations = new GetStationsImpl(stationRepository);

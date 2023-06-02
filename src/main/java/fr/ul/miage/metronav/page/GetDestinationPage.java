@@ -12,12 +12,12 @@ import fr.ul.miage.metronav.util.ScannerDouble;
 import java.util.ArrayList;
 
 public class GetDestinationPage extends Page{
-    private Station closest;
+    private Position positionUtilisateur;
     private GetStations getStationsUC;
     private GetItineraire getItiUC;
 
-    public GetDestinationPage(Station closest, GetStations getStationsUC, GetItineraire getItiUC) {
-        this.closest = closest;
+    public GetDestinationPage(Position positionUtilisateur, GetStations getStationsUC, GetItineraire getItiUC) {
+        this.positionUtilisateur = positionUtilisateur;
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;
     }
@@ -35,11 +35,8 @@ public class GetDestinationPage extends Page{
     public void display() {
 
         Position destinationPos = getDestinationFromUser("Veuillez indiquer les coordonnées de votre destination :");
-        ServiceStationImpl serviceStation = new ServiceStationImpl();
 
-        Station destination = serviceStation.trouverPlusProcheStation(destinationPos, new ArrayList<>());
-
-        GetCriterePage gcp = new GetCriterePage(closest, destination, getStationsUC, getItiUC);
+        GetCriterePage gcp = new GetCriterePage(positionUtilisateur, destinationPos, getStationsUC, getItiUC);
         gcp.setPreviousPage(this);
         gcp.display();
     }

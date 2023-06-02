@@ -48,11 +48,7 @@ public class GetPositionPage extends Page {
     public void display() {
         Position userPos = getPositionFromUser("Entrez votre position actuelle : ");
 
-        ServiceStationImpl serviceStation = new ServiceStationImpl();
-
-        Station closest = serviceStation.trouverPlusProcheStation(userPos, new ArrayList<>());
-
-        GetDestinationPage gdp = new GetDestinationPage(closest, getStationsUC, getItiUC);
+        GetDestinationPage gdp = new GetDestinationPage(userPos, getStationsUC, getItiUC);
         gdp.setPreviousPage(this);
         gdp.display();
 
