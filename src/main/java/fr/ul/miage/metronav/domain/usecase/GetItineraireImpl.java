@@ -11,6 +11,7 @@ import fr.ul.miage.metronav.domain.service.ServiceItineraireRapide;
 import fr.ul.miage.metronav.domain.service.ServiceItineraireSimple;
 import fr.ul.miage.metronav.domain.service.ServiceStation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GetItineraireImpl implements GetItineraire{
@@ -46,7 +47,17 @@ public class GetItineraireImpl implements GetItineraire{
 
         return serviceItineraireSimple.calculerItineraireSimple(stationDepart,  stationArrivee,  stationRepository.getAllStations(), trajetRepository.getAllTrajet());
     }
+    @Override
+    public List<Itineraire> getItineraireCompose(List<Position> positions){
+        List<Itineraire> itineraires = new ArrayList<>();
+        for (int i =0; i < positions.size()-2; i++){
+            Station stationDepart = serviceStation.trouverPlusProcheStation(positions.get(i), stationRepository.getAllStations());
+            Station stationArrivee = serviceStation.trouverPlusProcheStation(positions.get(i+1), stationRepository.getAllStations());
+        itineraires.add(serviceItineraireRapide.calculerItineraireRapide(stationDepart,stationArrivee,  stationRepository.getAllStations(), trajetRepository.getAllTrajet()));
+        }
 
+        return itineraires;
+    }
 
     @Override
     public List<Trajet> getAllTrajets() {

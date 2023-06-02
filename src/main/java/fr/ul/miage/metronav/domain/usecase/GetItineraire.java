@@ -12,6 +12,8 @@ public interface  GetItineraire {
 
     Itineraire getItineraireSimple(Position depart, Position arrivee);
 
+    List<Itineraire> getItineraireCompose (List<Position> positions);
+
     List<Trajet> getAllTrajets();
 
 
