@@ -14,7 +14,7 @@ En ce qui concerne la gestion des activités à réaliser, il faut mettre en pla
 - org.jgrapht
 
 Exemple de graphe de métro avec un trajet trouvable grâce au code :
-
+![](docs/grapheMetro.png)
 
 ## Spécifications réalisées 
 - itinéraire le plus rapide en durée
