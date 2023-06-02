@@ -23,6 +23,7 @@ public class GetDestinationPage extends Page{
     }
 
     public Position getDestinationFromUser(String message){
+
         System.out.println(message);
         ScannerDouble scd = new ScannerDouble();
         double latitude = scd.getValidDoubleInput("Latitude : ");
@@ -33,6 +34,9 @@ public class GetDestinationPage extends Page{
 
     @Override
     public void display() {
+        System.out.println("-----------------------");
+        System.out.println("Destination");
+        System.out.println("-----------------------");
 
         Position destinationPos = getDestinationFromUser("Veuillez indiquer les coordonnées de votre destination :");
 

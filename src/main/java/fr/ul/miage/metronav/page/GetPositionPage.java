@@ -46,6 +46,10 @@ public class GetPositionPage extends Page {
 
     @Override
     public void display() {
+        System.out.println("-----------------------");
+        System.out.println("Position de départ");
+        System.out.println("-----------------------");
+
         Position userPos = getPositionFromUser("Entrez votre position actuelle : ");
 
         GetDestinationPage gdp = new GetDestinationPage(userPos, getStationsUC, getItiUC);
