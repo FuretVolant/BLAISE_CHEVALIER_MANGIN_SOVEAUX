@@ -27,8 +27,6 @@ public class ServiceItineraireSimpleImpl extends PathFinder implements ServiceIt
 
                     if (!visitedStations.contains(neighborStation)) {//Si la station n'as pas deja été traverser
 
-
-
                         int lineChangeTrajet = sameLine(getTrajet(previousStations.get(currentStation), currentStation, trajetList),getTrajet(currentStation, neighborStation, trajetList))? 0 : 1;
 
                         int newDistance = distances.get(currentStation) + lineChangeTrajet;//on augmente la valeur de la distance de la station courrante
@@ -44,8 +42,8 @@ public class ServiceItineraireSimpleImpl extends PathFinder implements ServiceIt
         }
 
         List<Station> itineraireStation = buildPath(previousStations, stationArrivee);
-
-        return stationListToItineraire(stationList, trajetList);
+        Collections.reverse(itineraireStation);
+        return stationListToItineraire(itineraireStation, trajetList);
     }
 
     private List<Station> buildPath(Map<Station, Station> previousStations, Station station) {

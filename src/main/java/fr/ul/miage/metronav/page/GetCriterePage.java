@@ -2,16 +2,10 @@ package fr.ul.miage.metronav.page;
 
 import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
-import fr.ul.miage.metronav.domain.model.Station;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireRapide;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireRapideImpl;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireSimple;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireSimpleImpl;
 import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.util.ScannerChoix;
 
-import java.awt.*;
 import java.util.HashMap;
 
 public class GetCriterePage extends Page{
