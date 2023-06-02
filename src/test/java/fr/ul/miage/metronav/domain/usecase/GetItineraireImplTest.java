@@ -35,7 +35,7 @@ class GetItineraireImplTest {
 
         ServiceStation serviceStation = new ServiceStationImpl();
 
-        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraireSimple, serviceItineraireRapide);
+        GetItineraire getItineraireUseCase = new GetItineraireImpl(stationRepository, trajetRepository, serviceStation, serviceItineraire);
 
         Position depart = new Position(0.0, 0.0);
         Position arrivee = new Position(0.0, 6.0);
