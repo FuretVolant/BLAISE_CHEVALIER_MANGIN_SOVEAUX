@@ -24,7 +24,7 @@ public class Menu extends Page {
 
         this.choix.put(1,"Chercher un itinéraire");
         this.choix.put(2,"Voir toutes les stations");
-        this.choix.put(3,"Voir les incidents en cours");
+        this.choix.put(3,"Quitter");
     }
 
     @Override
@@ -36,28 +36,26 @@ public class Menu extends Page {
 
         int choixUser = scc.getValidIntInput("Veuillez choisir une action ci dessous : ");
 
-        switch(choixUser){
-            case 1 :
+        switch (choixUser) {
+            case 1 -> {
                 GetPositionPage gpg = new GetPositionPage(getStationsUC, getItiUC);
                 gpg.setPreviousPage(this);
                 gpg.display();
-                break;
-            case 2 :
+            }
+            case 2 -> {
                 List<Station> stationList = getStationsUC.getAllStations();
-                for (Station s : stationList){
+                for (Station s : stationList) {
                     afficherStations(s);
                 }
                 display();
-                break;
-            case 3 :
-                //TODO appel à la recherche d'itinéraire composé
-                break;
+            }
+            case 3 -> System.exit(0);
         }
-
 
     }
 
     public void afficherStations(Station s){
+        System.out.println("-----------------------");
         System.out.println("Station: " + s.getNom());
         System.out.println("Lignes: " + formatLignesStation(s.getLignes()));
         System.out.println("Temps d'arret à la station: " + s.getTemps_arret());

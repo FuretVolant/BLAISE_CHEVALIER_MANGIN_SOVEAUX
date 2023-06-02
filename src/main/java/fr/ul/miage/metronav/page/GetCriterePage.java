@@ -2,11 +2,6 @@ package fr.ul.miage.metronav.page;
 
 import fr.ul.miage.metronav.domain.model.Itineraire;
 import fr.ul.miage.metronav.domain.model.Position;
-import fr.ul.miage.metronav.domain.model.Station;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireRapide;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireRapideImpl;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireSimple;
-import fr.ul.miage.metronav.domain.service.ServiceItineraireSimpleImpl;
 import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.util.ScannerChoix;
@@ -28,7 +23,6 @@ public class GetCriterePage extends Page{
         this.getStationsUC = getStationsUC;
         this.getItiUC = getItiUC;
 
-        this.choixCritere.put(0,"Retour");
         this.choixCritere.put(1,"Rapide");
         this.choixCritere.put(2,"Simple");
         this.choixCritere.put(3,"Composé");
@@ -53,8 +47,9 @@ public class GetCriterePage extends Page{
                 res = Collections.singletonList(getItiUC.getItineraireSimple(depart , arrivee));
                 break;
             case 3 :
-                //TODO appel à la recherche d'itinéraire composé
-                break;
+                GetMultipleDestinationPage gmdp = new GetMultipleDestinationPage(depart, arrivee, getStationsUC, getItiUC);
+                gmdp.setPreviousPage(this);
+                gmdp.display();
             case 4 :
                 goToPreviousPage();
         }

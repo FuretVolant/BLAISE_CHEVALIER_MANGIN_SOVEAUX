@@ -23,12 +23,12 @@ public class ItinerairePage extends Page {
 
     @Override
     public void display() {
-        if (itineraireList.size()==1){
+        if (itineraireList.size()>1){
             for (Itineraire i : itineraireList) {
                 System.out.println("Itinéraire n°"+itineraireList.indexOf(i));
                 System.out.println(i.getTrajetList().toString());
             }
-        }else{
+        }else if(itineraireList.size()==1){
             System.out.println(itineraireList.get(0).getTrajetList().toString());
         }
     }
