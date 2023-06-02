@@ -5,6 +5,10 @@ import fr.ul.miage.metronav.domain.model.Station;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implémentation de la classe StationRepository pour les données locale.
+ * Cette classe gère la récupération des informations sur les stations.
+ */
 public class StationLocalRepositoryImpl implements StationRepository {
 
 
@@ -16,6 +20,9 @@ public class StationLocalRepositoryImpl implements StationRepository {
         return this.stationList;
     }
 
+    /**
+     * @return liste des stations avec des accidents
+     */
     @Override
     public List<Station> getAllStationsAccidents() {
         ArrayList<Station> res = new ArrayList<>();

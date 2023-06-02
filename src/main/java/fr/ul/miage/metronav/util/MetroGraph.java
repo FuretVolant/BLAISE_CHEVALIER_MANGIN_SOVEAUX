@@ -8,18 +8,31 @@ import fr.ul.miage.metronav.domain.model.Trajet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe représentant le graphe du métro.
+ */
 public class MetroGraph {
 
     private final List<Station> stationList;
 
     private final List<Trajet> trajetList;
 
+
+
+    /**
+     * Constructeur de MetroGraph.
+     * Initialise les listes de stations et de trajets.
+     * Ajoute les stations et les trajets prédéfinis.
+     */
     public MetroGraph(){
         this.trajetList = new ArrayList<>();
         this.stationList = new ArrayList<>();
         addStation();
     }
 
+    /**
+     * Ajoute les stations prédéfinies et les trajets correspondants.
+     */
     private void addStation(){
 
         // Station A
@@ -57,75 +70,87 @@ public class MetroGraph {
         lignesF.add(new Ligne("Ligne 4"));
         Station stationF = new Station("Station F", new Position(7.0, 8.0), 4, lignesF, "");
 
-        // Station F
+        // Station G
         List<Ligne> lignesG = new ArrayList<>();
         lignesG.add(new Ligne("Ligne 1"));
         lignesG.add(new Ligne("Ligne 4"));
         lignesG.add(new Ligne("Ligne 3"));
         Station stationG = new Station("Station G", new Position(2.0, 9.0), 4, lignesG, "");
 
-        // Station F
+        // Station H
         List<Ligne> lignesH = new ArrayList<>();
         lignesH.add(new Ligne("Ligne 2"));
         lignesH.add(new Ligne("Ligne 4"));
         Station stationH = new Station("Station H", new Position(1.0, 6.0), 4, lignesH, "");
 
-        // Station F
+        // Station I
         List<Ligne> lignesI = new ArrayList<>();
         lignesI.add(new Ligne("Ligne 2"));
         Station stationI = new Station("Station I", new Position(3.0, 6.0), 4, lignesI, "Incident Notable");
 
-
+        // Trajet AB
         List<Ligne> lignesAB = new ArrayList<>();
         lignesAB.add(new Ligne("Ligne 2"));
         Trajet tragetAB = new Trajet(stationA,stationB, 40,lignesAB);
 
+        // Trajet BC
         List<Ligne> lignesBC = new ArrayList<>();
         lignesBC.add(new Ligne("Ligne 1"));
         Trajet tragetBC = new Trajet(stationB,stationC, 30,lignesBC);
 
+        // Trajet BI
         List<Ligne> lignesBI = new ArrayList<>();
         lignesBI.add(new Ligne("Ligne 2"));
         Trajet tragetBI = new Trajet(stationB,stationI, 1,lignesBI);
 
+        // Trajet AD
         List<Ligne> lignesAD = new ArrayList<>();
         lignesAD.add(new Ligne("Ligne 3"));
         Trajet tragetAD = new Trajet(stationA,stationD, 17,lignesAD);
 
+        // Trajet DE
         List<Ligne> lignesDE = new ArrayList<>();
         lignesDE.add(new Ligne("Ligne 4"));
         Trajet tragetDE = new Trajet(stationD,stationE, 12,lignesDE);
 
+        // Trajet EF
         List<Ligne> lignesEF = new ArrayList<>();
         lignesEF.add(new Ligne("Ligne 4"));
         Trajet tragetEF = new Trajet(stationE,stationF, 13,lignesEF);
 
+        // Trajet CF
         List<Ligne> lignesCF = new ArrayList<>();
         lignesCF.add(new Ligne("Ligne 1"));
         Trajet tragetCF = new Trajet(stationC,stationF, 15,lignesCF);
 
+        // Trajet GF
         List<Ligne> lignesGF = new ArrayList<>();
         lignesGF.add(new Ligne("Ligne 1"));
         lignesGF.add(new Ligne("Ligne 4"));
         Trajet tragetGF = new Trajet(stationG,stationF, 40,lignesGF);
 
+        // Trajet GH
         List<Ligne> lignesGH = new ArrayList<>();
         lignesGH.add(new Ligne("Ligne 2"));
         Trajet tragetGH = new Trajet(stationG,stationH, 18,lignesGH);
 
+        // Trajet HI
         List<Ligne> lignesHI = new ArrayList<>();
         lignesHI.add(new Ligne("Ligne 2"));
         Trajet tragetHI = new Trajet(stationH,stationI, 1,lignesHI);
 
+        // Trajet GC
         List<Ligne> lignesGC = new ArrayList<>();
         lignesGC.add(new Ligne("Ligne 3"));
         Trajet tragetGC = new Trajet(stationG,stationC, 2,lignesGC);
 
+        // Trajet CD
         List<Ligne> lignesCD = new ArrayList<>();
         lignesCD.add(new Ligne("Ligne 2"));
         Trajet tragetCD = new Trajet(stationC,stationD, 2, "Trajet fermé pour travaux",lignesCD);//incident
 
 
+        // Ajout des stations à la liste
         this.stationList.add(stationA);
         this.stationList.add(stationB);
         this.stationList.add(stationC);
@@ -136,6 +161,7 @@ public class MetroGraph {
         this.stationList.add(stationH);
         this.stationList.add(stationI);
 
+        // Ajout des trajets à la liste
         this.trajetList.add(tragetAB);
         this.trajetList.add(tragetBC);
         this.trajetList.add(tragetBI);

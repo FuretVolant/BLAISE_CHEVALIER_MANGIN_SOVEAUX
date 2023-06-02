@@ -36,7 +36,7 @@ public class ServiceItineraireRapideImpl extends PathFinder implements ServiceIt
     }
 
     /**
-     * Génère l'itinéraire à partir du plus court chemin et de la liste des trajets.
+     * Génère l'itinéraire à partir du plus rapide chemin et de la liste des trajets.
      *
      * @param shortestPath Le plus court chemin.
      * @param trajetList   La liste des trajets.
