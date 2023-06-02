@@ -17,8 +17,7 @@ public class ScannerDouble extends ScannerBase{
             try {
                 System.out.print(prompt);
                 String input = scanner.nextLine();
-                double value = Double.parseDouble(input);
-                return value;
+                return Double.parseDouble(input);
             } catch (NumberFormatException e) {
                 System.out.println("Erreur : Veuillez entrer un nombre décimal valide.");
             }

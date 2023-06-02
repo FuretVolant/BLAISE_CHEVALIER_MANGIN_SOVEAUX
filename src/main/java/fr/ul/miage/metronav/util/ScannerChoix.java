@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class ScannerChoix extends ScannerBase {
 
-    private Map<Integer, String> choix;
+    private final Map<Integer, String> choix;
 
     public ScannerChoix(Map<Integer, String> choix) {
         this.choix = choix;
-        this.scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
     public ScannerChoix(Map<Integer, String> choix, ByteArrayInputStream inputStream) {
