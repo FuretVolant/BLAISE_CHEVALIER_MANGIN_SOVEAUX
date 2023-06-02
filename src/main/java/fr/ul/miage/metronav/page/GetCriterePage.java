@@ -6,7 +6,9 @@ import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.util.ScannerChoix;
 
-import java.util.HashMap;
+
+import java.util.*;
+import java.util.List;
 
 public class GetCriterePage extends Page{
 
@@ -26,28 +28,36 @@ public class GetCriterePage extends Page{
         this.choixCritere.put(1,"Rapide");
         this.choixCritere.put(2,"Simple");
         this.choixCritere.put(3,"Composé");
+        this.choixCritere.put(4,"Retour");
     }
 
     @Override
     public void display() {
+        System.out.println("-----------------------");
+        System.out.println("Choix du critère");
+        System.out.println("-----------------------");
         ScannerChoix scc = new ScannerChoix(choixCritere);
         int choixUser = scc.getValidIntInput("Choisissez quel type d'itinéraire vous souhaitez : ");
 
-        Itineraire res = new Itineraire();
+        List<Itineraire> res = new ArrayList<>();
 
         switch(choixUser){
             case 1 :
-                res = getItiUC.getItineraireRapide(depart, arrivee);
+                res = Collections.singletonList(getItiUC.getItineraireRapide(depart, arrivee));
                 break;
             case 2 :
-                res = getItiUC.getItineraireSimple(depart , arrivee);
+                res = Collections.singletonList(getItiUC.getItineraireSimple(depart , arrivee));
                 break;
             case 3 :
                 //TODO appel à la recherche d'itinéraire composé
                 break;
-                //TODO case 0 : retour
+            case 4 :
+                goToPreviousPage();
         }
 
-        System.out.println(res.getTrajetList().toString());
+        ItinerairePage itiPage = new ItinerairePage(getStationsUC, getItiUC);
+        itiPage.setItineraireList(res);
+        itiPage.setPreviousPage(this);
+        itiPage.display();
     }
 }

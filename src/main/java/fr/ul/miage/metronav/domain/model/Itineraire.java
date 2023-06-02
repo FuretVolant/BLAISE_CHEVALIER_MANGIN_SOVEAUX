@@ -1,5 +1,6 @@
 package fr.ul.miage.metronav.domain.model;
 
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -31,5 +32,11 @@ public class Itineraire {
 
     public List<Trajet> getTrajetList() {
         return trajetList;
+    }
+
+    public String getHeureArrivee(){
+        LocalTime heureActuelle = LocalTime.now();
+        LocalTime heureArrivee = heureActuelle.plusMinutes(getTempsTotal());
+        return heureArrivee.toString();
     }
 }
