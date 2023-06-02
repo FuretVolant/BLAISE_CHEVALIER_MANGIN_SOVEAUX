@@ -59,20 +59,20 @@ public class MetroGraph {
 
         // Station F
         List<Ligne> lignesG = new ArrayList<>();
-        lignesF.add(new Ligne("Ligne 1"));
-        lignesF.add(new Ligne("Ligne 4"));
-        lignesF.add(new Ligne("Ligne 3"));
+        lignesG.add(new Ligne("Ligne 1"));
+        lignesG.add(new Ligne("Ligne 4"));
+        lignesG.add(new Ligne("Ligne 3"));
         Station stationG = new Station("Station G", new Position(2.0, 9.0), 4, lignesG, "");
 
         // Station F
         List<Ligne> lignesH = new ArrayList<>();
-        lignesF.add(new Ligne("Ligne 2"));
-        lignesF.add(new Ligne("Ligne 4"));
+        lignesH.add(new Ligne("Ligne 2"));
+        lignesH.add(new Ligne("Ligne 4"));
         Station stationH = new Station("Station H", new Position(1.0, 6.0), 4, lignesH, "");
 
         // Station F
         List<Ligne> lignesI = new ArrayList<>();
-        lignesF.add(new Ligne("Ligne 2"));
+        lignesI.add(new Ligne("Ligne 2"));
         Station stationI = new Station("Station I", new Position(3.0, 6.0), 4, lignesI, "Incident Notable");
 
 
@@ -122,7 +122,7 @@ public class MetroGraph {
         Trajet tragetGC = new Trajet(stationG,stationC, 2,lignesGC);
 
         List<Ligne> lignesCD = new ArrayList<>();
-        lignesF.add(new Ligne("Ligne 2"));
+        lignesCD.add(new Ligne("Ligne 2"));
         Trajet tragetCD = new Trajet(stationC,stationD, 2, "Trajet fermé pour travaux",lignesCD);//incident
 
 
