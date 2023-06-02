@@ -6,6 +6,14 @@ import java.util.Objects;
 public class Trajet {
 
     private Station stationDepart;
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stationDepart, stationArrivee);
+    }
+
     private Station stationArrivee;
     private int duree;
     private String incident;
@@ -54,5 +62,13 @@ public class Trajet {
 
     public boolean isSafe(){
         return Objects.equals(incident, "");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trajet trajet = (Trajet) o;
+        return Objects.equals(stationDepart, trajet.stationDepart) && Objects.equals(stationArrivee, trajet.stationArrivee);
     }
 }

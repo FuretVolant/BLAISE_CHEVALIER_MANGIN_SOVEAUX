@@ -11,8 +11,6 @@ import fr.ul.miage.metronav.domain.usecase.GetItineraire;
 import fr.ul.miage.metronav.domain.usecase.GetStations;
 import fr.ul.miage.metronav.util.ScannerChoix;
 
-import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
 
