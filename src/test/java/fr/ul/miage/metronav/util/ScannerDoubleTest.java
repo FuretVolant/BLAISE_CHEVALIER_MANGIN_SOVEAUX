@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScannerDoubleTest {
+class ScannerDoubleTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream originalPrintStream = System.out;
@@ -28,7 +28,7 @@ public class ScannerDoubleTest {
 
 
     @Test
-    public void testValidInputDouble(){
+    void testValidInputDouble(){
 
         String input = "45.43215";
 
@@ -41,7 +41,7 @@ public class ScannerDoubleTest {
     }
 
     @Test
-    public void testNegativeValidInputDouble(){
+    void testNegativeValidInputDouble(){
 
         String input = "-2.5678\r\n";
 
@@ -54,7 +54,7 @@ public class ScannerDoubleTest {
 
 
     @Test
-    public void testInValidThenValidInputDouble(){
+    void testInValidThenValidInputDouble(){
 
         String input1 = "Invalid Value\r\n";
         String input2 = "45.43215\r\n";

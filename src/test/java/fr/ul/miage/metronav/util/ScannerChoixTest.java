@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScannerChoixTest {
+class ScannerChoixTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream originalPrintStream = System.out;
@@ -20,20 +20,20 @@ public class ScannerChoixTest {
 
 
     @BeforeEach
-    public void setUpStreams() {
+    void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
 
     }
 
     @AfterEach
-    public void restoreStreams() {
+    void restoreStreams() {
         System.setOut(originalPrintStream);
     }
 
 
 
     @Test
-    public void testValidInputChoix(){
+    void testValidInputChoix(){
         choix.put(1, "Normal");
         choix.put(2, "Simple");
         choix.put(3, "Composé");
@@ -48,7 +48,7 @@ public class ScannerChoixTest {
     }
 
     @Test
-    public void testNegativeInvalidInputChoix(){
+    void testNegativeInvalidInputChoix(){
 
         choix.put(1, "Normal");
         choix.put(2, "Simple");
@@ -81,7 +81,7 @@ public class ScannerChoixTest {
     }
 
     @Test
-    public void testOutOfBoundInputChoix(){
+    void testOutOfBoundInputChoix(){
         choix.put(1, "Normal");
         choix.put(2, "Simple");
         choix.put(3, "Composé");
