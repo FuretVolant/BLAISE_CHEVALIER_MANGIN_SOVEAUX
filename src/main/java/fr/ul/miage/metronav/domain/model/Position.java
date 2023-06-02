@@ -1,5 +1,8 @@
 package fr.ul.miage.metronav.domain.model;
 
+/**
+ * Représente une position géographique avec une longitude et une latitude.
+ */
 public class Position {
     private double longitude;
     private double latitude;

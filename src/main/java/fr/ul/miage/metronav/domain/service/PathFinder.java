@@ -7,8 +7,18 @@ import fr.ul.miage.metronav.domain.model.Trajet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe abstraite pour rechercher un chemin.
+ */
 abstract public class PathFinder {
 
+    /**
+     * Convertit une liste de stations et une liste de trajets en un itinéraire.
+     *
+     * @param stationList La liste des stations à parcourir.
+     * @param trajetList  La liste des trajets disponibles.
+     * @return Un objet Itineraire représentant le chemin à suivre.
+     */
     public Itineraire stationListToItineraire(List<Station> stationList, List<Trajet> trajetList){
 
         List<Trajet> trajetListItineraire = new ArrayList<>();
